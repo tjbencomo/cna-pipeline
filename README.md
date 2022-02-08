@@ -14,9 +14,9 @@ Snakemake workflow to analyze somatic copy number alterations from whole exome d
 ## Sample File Format
 `samples.csv` should be a CSV file with the following columns:
 
-* patient - patient identifier
-* sample_type - either `normal` or `tumor`
-* bam - filepath for BAM for that sample
+* `patient` - patient identifier
+* `sample_type` - either `normal` or `tumor`
+* `bam` - filepath for BAM for that sample
 
 All patients are required to have both normal and tumor BAMs.
 
