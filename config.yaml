@@ -1,5 +1,5 @@
 ## CSV file describing samples to process - all samples must be paired
-samples: samples.csv
+samples: samples3.csv
 
 ## SLURM logging directory - where to write slurm output files
 slurm_log_dir: slurm-logs
@@ -17,5 +17,8 @@ refFlat: /home/groups/carilee/refs/refFlat.hg38.txt.gz
 cnvkit_threads: 8
 
 ## Containers
+# Uncomment docker paths and comment out filepaths if not in Lee Lab
+# sequenza_env: docker://tbencomo/sequenza
+# cnvkit_env: docker://etal/cnvkit
 sequenza_env: /home/groups/carilee/software/containers/sequenza_latest.sif
 cnvkit_env: /home/groups/carilee/software/containers/cnvkit_v0.9.8
