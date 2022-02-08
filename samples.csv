@@ -1,0 +1,5 @@
+patient,sample_type,bam
+patient101,normal,patient101.normal.bam
+patient101,tumor,patient101.tumor.bam
+patient102,normal,patient102.normal.bam
+patient102,tumor,patient102.tumor.bam

@@ -1,0 +1,12 @@
+## CSV file describing samples to process - all samples must be paired
+samples: samples.csv
+
+## SLURM logging directory - where to write slurm output files
+slurm_log_dir: slurm-logs
+
+## Reference fasta
+ref_fasta: /home/groups/carilee/refs/hg38/Homo_sapiens_assembly38.fasta
+
+## Containers
+sequenza_env: /home/groups/carilee/software/containers/sequenza_latest.sif
+cnvkit_env: /home/groups/carilee/software/containers/cnvkit_v0.9.8
