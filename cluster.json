@@ -13,7 +13,14 @@
         "time" : "12:00:00",
         "out" : "{logpath}/{rule}-{wildcards.sample_id}.out"
     },
-    "sequenza" : {
+    "sequenza" : 
+    {
         "out" : "{logpath}/{rule}-{wildcards.sample_id}.out"
+    },
+    "cnvkit" :
+    {
+        "time" : "18:00:00",
+        "mem" : "24G",
+        "ncpus" : "{cnvkit_threads}"
     }
 }

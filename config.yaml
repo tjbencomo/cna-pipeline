@@ -7,6 +7,15 @@ slurm_log_dir: slurm-logs
 ## Reference fasta
 ref_fasta: /home/groups/carilee/refs/hg38/Homo_sapiens_assembly38.fasta
 
+## Exome capture regions BED
+capture_regions: /home/groups/carilee/refs/coverage/agilent-exonsV5/S04380110_Covered.bed
+
+## Gene annotation database in RefFlatformat (needed for CNVkit - see tutorial website)
+refFlat: /home/groups/carilee/refs/refFlat.hg38.txt.gz
+
+## Number of threads to use for CNVKit
+cnvkit_threads: 8
+
 ## Containers
 sequenza_env: /home/groups/carilee/software/containers/sequenza_latest.sif
 cnvkit_env: /home/groups/carilee/software/containers/cnvkit_v0.9.8
