@@ -11,11 +11,11 @@
     "process_bam" :
     {
         "time" : "12:00:00",
-        "out" : "{logpath}/{rule}-{wildcards.sample_id}.out"
+        "out" : "{logpath}/{rule}-{wildcards.patient}.out"
     },
     "sequenza" : 
     {
-        "out" : "{logpath}/{rule}-{wildcards.sample_id}.out"
+        "out" : "{logpath}/{rule}-{wildcards.patient}.out"
     },
     "cnvkit" :
     {
