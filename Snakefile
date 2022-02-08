@@ -24,10 +24,16 @@ samples = samples.set_index(['patient', 'sample_type'], drop = False)
 ## Reference Files
 ref_fasta = config['ref_fasta']
 
+## Target Capture Region File
+regions = config['capture_regions']
+
 # Logs
 slurm_logdir = config['slurm_log_dir']
 logpath = Path(slurm_logdir)
 logpath.mkdir(parents=True, exist_ok=True) 
+
+## CNVKit threads
+cnvkit_threads = config['cnvkit_threads']
 
 ## Containers
 sequenza_env = config['sequenza_env']
@@ -38,14 +44,15 @@ def get_bams(wildcards):
             'tumor' : samples.loc[(wildcards.patient, 'tumor'), 'bam']}
 
 def get_normal_bams():
-    return samples.loc[df['sample_type'] == 'normal', 'bam'].tolist()
+    return samples.loc[samples['sample_type'] == 'normal', 'bam'].tolist()
 
 def get_tumor_bams():
-    return samples.loc[df['sample_type'] == 'tumor', 'bam'].tolist()
+    return samples.loc[samples['sample_type'] == 'tumor', 'bam'].tolist()
 
 rule targets:
     input:
-        "results/sequenza_info.csv"
+        "results/sequenza_info.csv",
+        "cnvkit-results"
 
 rule make_GC_wiggle:
     input:
@@ -97,3 +104,34 @@ rule gather_info:
     script:
         "scripts/gather_info.R"
 
+rule make_access:
+    input:
+        ref_fasta
+    output:
+        "access.5kb.hg38.bed"
+    singularity: cnvkit_env
+    shell:
+        """
+        cnvkit.py access {input} -o {output}
+        """
+
+rule cnvkit:
+    input:
+        normals=get_normal_bams(),
+        tumors=get_tumor_bams(),
+        targets=regions,
+        ref=ref_fasta,
+        access="access.5kb.hg38.bed"
+    output:
+        directory('cnvkit-results')
+    singularity: cnvkit_env
+    threads: cnvkit_threads
+    shell:
+        """
+        cnvkit.py batch {input.tumors} --normal {input.normals} \
+            --targets {input.targets} --fasta {input.ref} \
+            --access {input.access} \
+            --output-dir {output}
+            --output-reference cnvkit_reference.cnn \
+            -p {threads}
+        """
