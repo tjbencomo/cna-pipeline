@@ -1,0 +1,19 @@
+{
+    "__default__" :
+    {
+        "account" : "[YOUR ACCOUNT NAME HERE]",
+        "time" : "01:00:00",
+        "ncpus" : 1,
+        "mem" : "8G",
+        "partition" : "normal",
+        "out" : "{logpath}/{rule}.out"
+    },
+    "process_bam" :
+    {
+        "time" : "12:00:00",
+        "out" : "{logpath}/{rule}-{wildcards.sample_id}.out"
+    },
+    "sequenza" : {
+        "out" : "{logpath}/{rule}-{wildcards.sample_id}.out"
+    }
+}
