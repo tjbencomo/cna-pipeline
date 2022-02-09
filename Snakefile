@@ -101,6 +101,7 @@ rule gather_info:
         expand("sequenza/{patient}-results/{patient}.small.se_confints_CP.txt", patient=samples.patient)
     output:
         "results/sequenza_info.csv"
+    singularity: sequenza_env
     script:
         "scripts/gather_info.R"
 
