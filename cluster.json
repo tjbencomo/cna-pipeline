@@ -19,7 +19,7 @@
     },
     "cnvkit" :
     {
-        "time" : "18:00:00",
+        "time" : "01-00:00:00",
         "mem" : "24G",
         "ncpus" : "{cnvkit_threads}"
     }

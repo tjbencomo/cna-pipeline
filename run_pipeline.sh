@@ -2,7 +2,7 @@
 #SBATCH --job-name=
 #SBATCH --output=
 #SBATCH --nodes=1
-#SBATCH --time=01-12:00:00
+#SBATCH --time=01-18:00:00
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=300
 #SBATCH --mail-type=END,FAIL
