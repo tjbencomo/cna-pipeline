@@ -132,7 +132,7 @@ rule cnvkit:
         cnvkit.py batch {input.tumors} --normal {input.normals} \
             --targets {input.targets} --fasta {input.ref} \
             --access {input.access} \
-            --output-dir {output}
+            --output-dir {output} \
             --output-reference cnvkit_reference.cnn \
             -p {threads}
         """
