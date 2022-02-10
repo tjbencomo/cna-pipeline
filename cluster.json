@@ -10,7 +10,7 @@
     },
     "process_bam" :
     {
-        "time" : "12:00:00",
+        "time" : "8:00:00",
         "out" : "{logpath}/{rule}-{wildcards.patient}.out"
     },
     "sequenza" : 
@@ -19,7 +19,7 @@
     },
     "cnvkit" :
     {
-        "time" : "01-00:00:00",
+        "time" : "10:00:00",
         "mem" : "24G",
         "ncpus" : "{cnvkit_threads}"
     }
