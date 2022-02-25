@@ -98,7 +98,7 @@ rule sequenza:
 
 rule gather_info:
     input:
-        expand("sequenza/{patient}-results/{patient}.small.se_confints_CP.txt", patient=samples.patient)
+        expand("sequenza/{patient}-results/{patient}.small.se_confints_CP.txt", patient=samples.patient.unique())
     output:
         "results/sequenza_info.csv"
     singularity: sequenza_env
